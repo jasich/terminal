@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 alias a="atom"
-alias pr="cd ~/Projects"
+changeDir() {
+	cd ~/Projects/$1
+}
+
+alias pr=changeDir
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
